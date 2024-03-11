@@ -9,16 +9,14 @@ self.addEventListener('message', function (event) {
 
 function receivePushNotification(event) {
     const options = {
-      data: "データ",
-      body: "内容",
+        body: event.data.text()
     };
-    event.waitUntil(this.registration.showNotification("タイトル", options));
+    event.waitUntil(this.registration.showNotification("PWA test", options));
 }
 this.addEventListener("push", receivePushNotification);
-/*
+
 function openPushNotification(event) {
     event.notification.close();
     event.waitUntil(clients.openWindow(event.notification.data));
 }
 this.addEventListener("notificationclick", openPushNotification);
-*/
