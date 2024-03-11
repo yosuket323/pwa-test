@@ -68,6 +68,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
     addBtn.style.display = "block";
     
     addBtn.addEventListener("click", (e) => {
+        console.log("clicked");
         // A2HS ボタンを表示するユーザーインターフェイスを非表示にします。
         addBtn.style.display = "none";
         // プロンプトを表示
