@@ -59,6 +59,7 @@ registerInstallAppEvent(document.getElementById("add-button"));
 function registerInstallAppEvent(elem) {
     function installApp() {
       if(elem.promptEvent){
+        console.log("install button clicked.");
         elem.promptEvent.prompt();
         elem.promptEvent.userChoice.then(function(choice){
             elem.style.display = "none";
