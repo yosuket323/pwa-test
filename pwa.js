@@ -98,18 +98,18 @@ function notification_subscribe() {
 function _showWebPushCommand(subscriptionInfo)
 {
     const command = [
-        "auth = mailto:yosuket@leapcom365.com",
-        "公開鍵 = BDHm_FQjWwXjcMi7f0T3B37PTUTk8F-SQNoDMvWaUzANa34Bvka9xYdpsH5xUHocQ-mkQDhYWXrn6PnrStaGlms",
-        "秘密鍵 = ZEnkVXMttEU1MuOvENWZVL7dMYlnVNupxRPezGkPxDQ",
-        "endpoint = " + subscriptionInfo.endpoint,
-        "p256dh = " + subscriptionInfo.keys.p256dh,
-        "auth = " + subscriptionInfo.keys.auth,
+        "auth = mailto:yosuket@leapcom365.com<br>",
+        "公開鍵 = BDHm_FQjWwXjcMi7f0T3B37PTUTk8F-SQNoDMvWaUzANa34Bvka9xYdpsH5xUHocQ-mkQDhYWXrn6PnrStaGlms<br>",
+        "秘密鍵 = ZEnkVXMttEU1MuOvENWZVL7dMYlnVNupxRPezGkPxDQ<br>",
+        "endpoint = " + subscriptionInfo.endpoint + "<br>",
+        "p256dh = " + subscriptionInfo.keys.p256dh + "<br>",
+        "auth = " + subscriptionInfo.keys.auth + "<br>",
     ];
 
-    var text = ("この内容で push.js の subscribers に登録してください:");
+    var text = "この内容で push.js の subscribers に登録してください:<br>";
     text += command.join(" ");
 
     console.log(text);
 
-    //document.getElementById("")
+    document.getElementById("result_text").innerHTML = text;
 }
