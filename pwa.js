@@ -72,7 +72,7 @@ function registerInstallAppEvent(elem) {
 
 // ブラウザのプッシュサービスに登録する
 function notification_subscribe() {
-    const pushServerPublicKey = 'BDHm_FQjWwXjcMi7f0T3B37PTUTk8F-SQNoDMvWaUzANa34Bvka9xYdpsH5xUHocQ-mkQDhYWXrn6PnrStaGlms';
+    const pushServerPublicKey = 'BPz672kOaQrLlbrw4eP3FoBYM1y5dVsl9BoJXdvjrqEuRQG3zGh2yLSvB_4PAuZH0GnDSRqb3-QMyuoMrDcnHms';
     return navigator.serviceWorker.ready.then(
         (serviceWorker) => {
         // subscribe and return the subscription
@@ -99,8 +99,8 @@ function _showWebPushCommand(subscriptionInfo)
 {
     const command = [
         "auth = mailto:yosuket@leapcom365.com<br>",
-        "公開鍵 = BDHm_FQjWwXjcMi7f0T3B37PTUTk8F-SQNoDMvWaUzANa34Bvka9xYdpsH5xUHocQ-mkQDhYWXrn6PnrStaGlms<br>",
-        "秘密鍵 = ZEnkVXMttEU1MuOvENWZVL7dMYlnVNupxRPezGkPxDQ<br>",
+        "公開鍵 = BPz672kOaQrLlbrw4eP3FoBYM1y5dVsl9BoJXdvjrqEuRQG3zGh2yLSvB_4PAuZH0GnDSRqb3-QMyuoMrDcnHms<br>",
+        "秘密鍵 = Y02NiF4fVEHqtVQ_KcSbXOl9Y1iUGtkGGYR1ylQ6xlk<br>",
         "endpoint = " + subscriptionInfo.endpoint + "<br>",
         "p256dh = " + subscriptionInfo.keys.p256dh + "<br>",
         "auth = " + subscriptionInfo.keys.auth + "<br>",
