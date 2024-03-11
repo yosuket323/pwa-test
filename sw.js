@@ -15,9 +15,10 @@ function receivePushNotification(event) {
     event.waitUntil(this.registration.showNotification("タイトル", options));
 }
 this.addEventListener("push", receivePushNotification);
-  
+/*
 function openPushNotification(event) {
     event.notification.close();
     event.waitUntil(clients.openWindow(event.notification.data));
 }
 this.addEventListener("notificationclick", openPushNotification);
+*/
