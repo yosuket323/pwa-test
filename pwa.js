@@ -6,10 +6,10 @@ window.addEventListener('load', () => {
             .then(registration => console.log("registered", registration))
             .catch(error => console.log("error", error));
     }
-
-    document.getElementById("register").addEventListener('click', onClickRegister);
-    document.getElementById("send").addEventListener("click", onClickSend);
 });
+
+document.getElementById("register").addEventListener('click', onClickRegister);
+document.getElementById("send").addEventListener("click", onClickSend);
 
 function onClickRegister() {
     if (!check_notification()) {
@@ -68,7 +68,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
     addBtn.style.display = "block";
     
     addBtn.addEventListener("click", (e) => {
-        console.log("clicked");
         // A2HS ボタンを表示するユーザーインターフェイスを非表示にします。
         addBtn.style.display = "none";
         // プロンプトを表示
