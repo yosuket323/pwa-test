@@ -89,8 +89,8 @@ function notification_subscribe() {
             return subscription;
         },
         (error) => {
-            console.log("プッシュサービス 登録失敗");
-            console.log(error);
+            alert("プッシュサービス 登録失敗");
+            alert(error);
         });
         }
     );
