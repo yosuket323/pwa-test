@@ -31,3 +31,24 @@ function openPushNotification(event) {
     event.waitUntil(clients.openWindow(event.notification.data.link));
 }
 this.addEventListener("notificationclick", openPushNotification);
+
+// キャッシュ
+var cacheName = "pwa-test";
+var contentToCache = [
+  "/icon/logo64.png",
+  "/icon/logo192.png",
+  "/icon/logo512.png",
+  "/index.html",
+  "/pwa-test.webmanifest",
+  "/pwa.js",
+  "/sw.js",
+];
+self.addEventListener("install", (e) => {
+    console.log("[Service Worker] Install");
+    e.waitUntil(
+      caches.open(cacheName).then((cache) => {
+        console.log("[Service Worker] Caching all: app shell and content");
+        return cache.addAll(contentToCache);
+      }),
+    );
+});
