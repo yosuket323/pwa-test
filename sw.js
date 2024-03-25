@@ -1,27 +1,15 @@
-var cacheName = "pwa-test-v2";
+var cacheName = "pwa-test-v3";
 
 // フェッチ時
-self.addEventListener('fetch', function(e) {
-    self.skipWaiting();
-
-    e.respondWith(
-        caches.match(e.request).then((r) => {
-            console.log("[Service Worker] Fetching resource: " + e.request.url);
-            return (
-                r ||
-                fetch(e.request).then((response) => {
-                return caches.open(cacheName).then((cache) => {
-                    console.log(
-                    "[Service Worker] Caching new resource: " + e.request.url,
-                    );
-                    cache.put(e.request, response.clone());
-                    return response;
-                });
-                })
-            );
-        }),
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+      caches
+        .match(event.request)
+        .then((response) => {
+          return response ? response : fetch(event.request);
+        })
     );
-})
+  });
 
 // メッセージ発生時
 self.addEventListener('message', function (event) {
@@ -66,15 +54,15 @@ var contentToCache = [
 ];
 
 // install : キャッシュ登録
-self.addEventListener("install", (e) => {
-    console.log("[Service Worker] Install");
-    e.waitUntil(
-        caches.open(cacheName).then((cache) => {
-            console.log("[Service Worker] Caching all: app shell and content");
-            return cache.addAll(contentToCache);
-        }),
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+      caches
+        .open(cacheName)
+        .then((cache) => {
+          return cache.addAll(urlsToCache);
+        })
     );
-});
+  });
 
 // activate : 古いキャッシュを削除
 self.addEventListener("activate", function (event) {
