@@ -48,6 +48,7 @@ var contentToCache = [
     "./icon/logo192.png",
     "./icon/logo512.png",
     "./cached-pages/",
+    "./cached-pages/index.html",
     "./cached-pages/cached-image.png"
 ];
 
