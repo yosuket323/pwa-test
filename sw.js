@@ -17,6 +17,7 @@ function receivePushNotification(event) {
     const options = {
         body: event_data.body,
         icon: event_data.icon,
+        data: event_data.data,
     };
     event.waitUntil(this.registration.showNotification(event_data.title, options));
 }
