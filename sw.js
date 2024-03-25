@@ -26,7 +26,7 @@ this.addEventListener("push", receivePushNotification);
 function openPushNotification(event) {
     self.skipWaiting();
     event.notification.close();
-    console.log(event.data.json());
+    console.log(event);
     event.waitUntil(clients.openWindow(event.notification.data));
 }
 this.addEventListener("notificationclick", openPushNotification);
