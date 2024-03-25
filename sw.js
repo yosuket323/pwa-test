@@ -14,7 +14,8 @@ self.addEventListener('message', function (event) {
 function receivePushNotification(event) {
     self.skipWaiting();
     const options = {
-        body: event.data.text()
+        //body: event.data.text()
+        body: event.data.parse().msg
     };
     event.waitUntil(this.registration.showNotification("PWA test", options));
 }
