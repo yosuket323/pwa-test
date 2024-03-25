@@ -1,4 +1,4 @@
-var cacheName = "pwa-test-v6";
+var cacheName = "pwa-test-v7";
 
 // フェッチ時
 self.addEventListener('fetch', (event) => {
@@ -8,14 +8,6 @@ self.addEventListener('fetch', (event) => {
         .then((response) => {
           return response ? response : fetch(event.request);
         })
-    );
-
-    event.waitUntil(
-        caches
-          .open(cacheName)
-          .then((cache) => {
-            return cache.addAll(contentToCache);
-          })
     );
 });
 
@@ -68,7 +60,7 @@ self.addEventListener('install', (event) => {
           return cache.addAll(contentToCache);
         })
     );
-  });
+});
 
 // activate : 古いキャッシュを削除
 self.addEventListener("activate", function (event) {
