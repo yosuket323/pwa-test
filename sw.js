@@ -1,6 +1,26 @@
+var cacheName = "pwa-test";
+
 // フェッチ時
 self.addEventListener('fetch', function(e) {
     self.skipWaiting();
+
+    e.respondWith(
+        caches.match(e.request).then((r) => {
+            console.log("[Service Worker] Fetching resource: " + e.request.url);
+            return (
+                r ||
+                fetch(e.request).then((response) => {
+                return caches.open(cacheName).then((cache) => {
+                    console.log(
+                    "[Service Worker] Caching new resource: " + e.request.url,
+                    );
+                    cache.put(e.request, response.clone());
+                    return response;
+                });
+                })
+            );
+        }),
+    );
 })
 
 // メッセージ発生時
@@ -33,7 +53,6 @@ function openPushNotification(event) {
 this.addEventListener("notificationclick", openPushNotification);
 
 // キャッシュ
-var cacheName = "pwa-test";
 var contentToCache = [
   "/icon/logo64.png",
   "/icon/logo192.png",
