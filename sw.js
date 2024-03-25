@@ -13,10 +13,9 @@ self.addEventListener('message', function (event) {
 // プッシュ受け取り時
 function receivePushNotification(event) {
     self.skipWaiting();
-    var event_data = JSON.parse(event.data.text());
+    var event_data = event.data.json();
     const options = {
-        //body: event.data.text()
-        body: event_data.msg,
+        body: event_data.body,
         icon: event_data.icon,
     };
     event.waitUntil(this.registration.showNotification(event_data.title, options));
@@ -27,6 +26,7 @@ this.addEventListener("push", receivePushNotification);
 function openPushNotification(event) {
     self.skipWaiting();
     event.notification.close();
+    console.log(event.notification.data);
     event.waitUntil(clients.openWindow(event.notification.data));
 }
 this.addEventListener("notificationclick", openPushNotification);
