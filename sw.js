@@ -54,15 +54,15 @@ this.addEventListener("notificationclick", openPushNotification);
 
 // キャッシュ
 var contentToCache = [
-  "icon/logo64.png",
-  "icon/logo192.png",
-  "icon/logo512.png",
-  "index.html",
-  "pwa-test.webmanifest",
-  "pwa.js",
-  "sw.js",
-  "cached-pages/index.html",
-  "cached-pages/cached-image.png"
+  "/pwa-test/icon/logo64.png",
+  "/pwa-test/icon/logo192.png",
+  "/pwa-test/icon/logo512.png",
+  "/pwa-test/index.html",
+  "/pwa-test/pwa-test.webmanifest",
+  "/pwa-test/pwa.js",
+  "/pwa-test/sw.js",
+  "/pwa-test/cached-pages/index.html",
+  "/pwa-test/cached-pages/cached-image.png"
 ];
 
 // install : キャッシュ登録
