@@ -9,7 +9,15 @@ self.addEventListener('fetch', (event) => {
           return response ? response : fetch(event.request);
         })
     );
-  });
+
+    event.waitUntil(
+        caches
+          .open(cacheName)
+          .then((cache) => {
+            return cache.addAll(contentToCache);
+          })
+    );
+});
 
 // メッセージ発生時
 self.addEventListener('message', function (event) {
