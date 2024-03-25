@@ -1,4 +1,4 @@
-var cacheName = "pwa-test-v3";
+var cacheName = "pwa-test-v4";
 
 // フェッチ時
 self.addEventListener('fetch', (event) => {
@@ -59,7 +59,7 @@ self.addEventListener('install', (event) => {
       caches
         .open(cacheName)
         .then((cache) => {
-          return cache.addAll(urlsToCache);
+          return cache.addAll(contentToCache);
         })
     );
   });
