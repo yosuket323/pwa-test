@@ -13,11 +13,13 @@ self.addEventListener('message', function (event) {
 // プッシュ受け取り時
 function receivePushNotification(event) {
     self.skipWaiting();
+    var event_data = event.data.parse();
     const options = {
         //body: event.data.text()
-        body: event.data.parse().msg
+        body: event_data.msg,
+        icon: event_data.icon,
     };
-    event.waitUntil(this.registration.showNotification("PWA test", options));
+    event.waitUntil(this.registration.showNotification(event_data.title, options));
 }
 this.addEventListener("push", receivePushNotification);
 
