@@ -27,6 +27,6 @@ function openPushNotification(event) {
     self.skipWaiting();
     event.notification.close();
     console.log(event);
-    event.waitUntil(clients.openWindow(event.notification.data));
+    event.waitUntil(clients.openWindow(event.notification.data.link));
 }
 this.addEventListener("notificationclick", openPushNotification);
