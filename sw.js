@@ -1,4 +1,4 @@
-var cacheName = "pwa-test-v8";
+var cacheName = "pwa-test-v9";
 
 // フェッチ時
 self.addEventListener('fetch', (event) => {
