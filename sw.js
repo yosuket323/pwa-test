@@ -1,4 +1,4 @@
-var cacheName = "pwa-test-v7";
+var cacheName = "pwa-test-v8";
 
 // フェッチ時
 self.addEventListener('fetch', (event) => {
@@ -47,7 +47,7 @@ var contentToCache = [
     "./icon/logo64.png",
     "./icon/logo192.png",
     "./icon/logo512.png",
-    "./cached-pages/index.html",
+    "./cached-pages/",
     "./cached-pages/cached-image.png"
 ];
 
