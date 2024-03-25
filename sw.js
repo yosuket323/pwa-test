@@ -61,6 +61,8 @@ var contentToCache = [
   "pwa-test.webmanifest",
   "pwa.js",
   "sw.js",
+  "cached-pages/index.html",
+  "cached-pages/cached-image.png"
 ];
 self.addEventListener("install", (e) => {
     console.log("[Service Worker] Install");
