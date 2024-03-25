@@ -13,7 +13,7 @@ self.addEventListener('message', function (event) {
 // プッシュ受け取り時
 function receivePushNotification(event) {
     self.skipWaiting();
-    var event_data = event.data.parse();
+    var event_data = event.data.text().parse();
     const options = {
         //body: event.data.text()
         body: event_data.msg,
